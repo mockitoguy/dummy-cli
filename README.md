@@ -1,3 +1,3 @@
 # Dummy project
 
-I use it for trying out Maven and Java 13+ 
+Testbed project for developing a new training course

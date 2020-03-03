@@ -1,20 +1,22 @@
 package com.mockitoguy;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
-public class MainTest
-{
-    /**
-     * Rigorous Test :-)
-     */
+import static java.util.Arrays.asList;
+import static org.junit.Assert.assertEquals;
+
+public class MainTest {
+
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void basic_lifecycle() {
+        App app = new App();
+        DummyCli cli = DummyCli.withInput("1", "2", "3");
+
+        //when
+        app.start(cli);
+
+        //then
+        assertEquals(asList(App.HELLO, App.ALBUMS, App.HELLO, App.SEARCH, App.HELLO, App.BYE),
+                cli.getOutputs());
     }
 }
